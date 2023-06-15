@@ -1,4 +1,8 @@
 let colored = false;
+
+const fillEmptyButton = document.getElementById("fillAllUncolored");
+const fillAllButton = document.getElementById("fillAll");
+
 let grid = document.getElementById("grid");
 let rows = 1;
 let columns = 1;
@@ -47,8 +51,6 @@ function getSelectedColor() {
   return colors.value;
 }
 
-const fillEmptyButton = document.getElementById("fillAllUncolored");
-
 function clearAll() {
   let cells = grid.getElementsByTagName("td");
   for (let i = 0; i < cells.length; i++) {
@@ -76,13 +78,13 @@ grid.onmousemove = function (event) {
   }
 };
 
-/*fillEmptyButton.addEventListener("click", () => {
-    const dataCells = grid.getElementsByTagName('td');
-    for (let i = 0; i < dataCells.length; i++) {
-        let elem = dataCells[i];
-        let computedStyle = window.getComputedStyle(elem);
-        if (computedStyle.getPropertyValue("background-color") === "transparent") {
-            elem.style.backgroundColor = getSelectedColor();
-        }
-    }
-});*/
+fillEmptyButton.addEventListener("click", () => {
+  const dataCells = grid.getElementsByTagName('td');
+  for (let i = 0; i < dataCells.length; i++) {
+      let elem = dataCells[i];
+      let computedStyle = window.getComputedStyle(elem);
+      if (computedStyle.getPropertyValue("background-color") === "transparent") {
+          elem.style.backgroundColor = getSelectedColor();
+      }
+  }
+});
