@@ -1,20 +1,6 @@
-<<<<<<< HEAD
 const fillEmptyButton = document.getElementById("fillAllUncolored");
+const fillAllButton = document.getElementById("fillAll");
 
-fillEmptyButton.addEventListener("click", () => {
-    const dataCells = grid.getElementsByTagName('td');
-    for (let i = 0; i < dataCells.length; i++) {
-        let elem = dataCells[i];
-        let computedStyle = window.getComputedStyle(elem);
-        if (computedStyle.getPropertyValue("background-color") === "transparent") {
-            elem.style.backgroundColor = getSelectedColor();
-        }
-    }
-});
-
-
-
-=======
 let grid = document.getElementById("grid");
 let rows = 1;
 let columns = 1;
@@ -46,4 +32,19 @@ addColumn.onclick = () => {
         tr.appendChild(td);
     }
 }
->>>>>>> 34eab98f47dce286433026a9ecc55e58137fb22f
+function getSelectedColor() {
+  const colors = document.getElementById("color");
+  return colors.value;
+}
+
+fillEmptyButton.addEventListener("click", () => {
+  const dataCells = grid.getElementsByTagName('td');
+  for (let i = 0; i < dataCells.length; i++) {
+      let elem = dataCells[i];
+      let computedStyle = window.getComputedStyle(elem);
+      if (computedStyle.getPropertyValue("background-color") === "transparent") {
+          elem.style.backgroundColor = getSelectedColor();
+      }
+  }
+});
+
