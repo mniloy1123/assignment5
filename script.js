@@ -28,4 +28,15 @@ addColumn.onclick = () => {
         let td = document.createElement('td');
         tr.appendChild(td);
     }
+    columns++;
+}
+
+const removeColumn = document.getElementById("removeColumns");
+removeColumn.onclick = () => {
+    let trs = document.querySelectorAll("table tr")
+    for (let tr of trs) {
+      let lastCellIndex = tr.cells.length - 1;
+      tr.deleteCell(lastCellIndex);
+    }
+    columns--;
 }
