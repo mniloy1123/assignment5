@@ -29,6 +29,22 @@ function clearAll() {
   }
 }
 
+let colored = false;
+let color = document.getElementById("color");
+cell.onclick = function (event) {
+  event.target.style.backgroundColor = color.value;
+};
+cell.onmousedown = function () {
+  colored = true;
+};
+cell.onmouseup = function () {
+  colored = false;
+};
+cell.onmousemove = function (event) {
+  if (colored) {
+    event.target.style.backgroundColor = color.value;
+  }
+};
   
 const addColumn = document.getElementById("addColumns");
 addColumn.onclick = () => {
