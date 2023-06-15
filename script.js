@@ -1,3 +1,4 @@
+let colored = false;
 let grid = document.getElementById("grid");
 let rows = 1;
 let columns = 1;
@@ -21,54 +22,61 @@ function removeRows() {
   }
 }
 
-function clearAll() {
-  let cells = grid.getElementsByTagName("td");
-  for (let i = 0; i < cells.length; i++) {
-    const cell = cells[i];
-    cell.style.backgroundColor = "white";
-  }
-}
-
-let colored = false;
-let color = document.getElementById("color");
-cell.onclick = function (event) {
-  event.target.style.backgroundColor = color.value;
-};
-cell.onmousedown = function () {
-  colored = true;
-};
-cell.onmouseup = function () {
-  colored = false;
-};
-cell.onmousemove = function (event) {
-  if (colored) {
-    event.target.style.backgroundColor = color.value;
-  }
-};
-  
 const addColumn = document.getElementById("addColumns");
 addColumn.onclick = () => {
-    let trs = document.querySelectorAll("table tr")
-    for (let tr of trs) {
-        let td = document.createElement('td');
-        tr.appendChild(td);
-    }
-    columns++;
-}
+  let trs = document.querySelectorAll("table tr");
+  for (let tr of trs) {
+    let td = document.createElement("td");
+    tr.appendChild(td);
+  }
+  columns++;
+};
 
 const removeColumn = document.getElementById("removeColumns");
 removeColumn.onclick = () => {
-    let trs = document.querySelectorAll("table tr")
-    for (let tr of trs) {
-      let lastCellIndex = tr.cells.length - 1;
-      tr.deleteCell(lastCellIndex);
-    }
-    columns--;
+  let trs = document.querySelectorAll("table tr");
+  for (let tr of trs) {
+    let lastCellIndex = tr.cells.length - 1;
+    tr.deleteCell(lastCellIndex);
+  }
+  columns--;
+};
+
+function getSelectedColor() {
+  const colors = document.getElementById("color");
+  return colors.value;
 }
 
 const fillEmptyButton = document.getElementById("fillAllUncolored");
 
-fillEmptyButton.addEventListener("click", () => {
+function clearAll() {
+  let cells = grid.getElementsByTagName("td");
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    if (!colored) {
+      cell.style.backgroundColor = "white";
+    }
+  }
+}
+
+grid.onclick = function (event) {
+  event.target.style.backgroundColor = getSelectedColor();
+};
+
+grid.onmousedown = function () {
+  colored = true;
+};
+grid.onmouseup = function () {
+  colored = false;
+};
+
+grid.onmousemove = function (event) {
+  if (colored) {
+    event.target.style.backgroundColor = getSelectedColor();
+  }
+};
+
+/*fillEmptyButton.addEventListener("click", () => {
     const dataCells = grid.getElementsByTagName('td');
     for (let i = 0; i < dataCells.length; i++) {
         let elem = dataCells[i];
@@ -77,4 +85,4 @@ fillEmptyButton.addEventListener("click", () => {
             elem.style.backgroundColor = getSelectedColor();
         }
     }
-});
+});*/
