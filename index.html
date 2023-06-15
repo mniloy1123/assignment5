@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <button id="addRows">Add Rows</button>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="addRows" onclick="addRows()">Add Rows</button>
     <button id="addColumns">Add Columns</button>
     <button id="removeRows">Remove Rows</button>
+    <button id="removeColumns">Remove Columns</button>
     <button id="fillAllUncolored">Fill Empty</button>
     <button id="fillAll">Fill All</button>
     <button id="clear">Clear All</button>
     <label for="color">Select color</label>
     <select id="color">
-        <option value="black">black</option>
-        <option value="yellow">yellow</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
-        <option value="pink">pink</option>
+      <option value="black">black</option>
+      <option value="yellow">yellow</option>
+      <option value="green">green</option>
+      <option value="blue">blue</option>
+      <option value="pink">pink</option>
     </select>
-
-   <script src="script.js"></script> 
-</body>
+    <table id="grid">
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+    <script src="script.js"></script>
+  </body>
 </html>
