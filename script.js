@@ -23,6 +23,31 @@ function removeRows() {
     grid.deleteRow(numRows - 1);
   }
 }
+
+function clearAll() {
+  let cells = grid.getElementsByTagName("td");
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    cell.style.backgroundColor = "white";
+  }
+}
+
+let colored = false;
+let color = document.getElementById("color");
+cell.onclick = function (event) {
+  event.target.style.backgroundColor = color.value;
+};
+cell.onmousedown = function () {
+  colored = true;
+};
+cell.onmouseup = function () {
+  colored = false;
+};
+cell.onmousemove = function (event) {
+  if (colored) {
+    event.target.style.backgroundColor = color.value;
+  }
+};
   
 const addColumn = document.getElementById("addColumns");
 addColumn.onclick = () => {
@@ -31,6 +56,7 @@ addColumn.onclick = () => {
         let td = document.createElement('td');
         tr.appendChild(td);
     }
+    columns++;
 }
 function getSelectedColor() {
   const colors = document.getElementById("color");
