@@ -83,3 +83,10 @@ fillEmptyButton.addEventListener("click", () => {
   }
 });
 
+fillAllButton.addEventListener("click", () => {
+  const dataCells = grid.getElementsByTagName('td');
+  for (let i = 0; i < dataCells.length; i++) {
+      let elem = dataCells[i];
+      elem.style.backgroundColor = getSelectedColor();
+  }
+});
