@@ -20,6 +20,15 @@ function removeRows() {
     grid.deleteRow(numRows - 1);
   }
 }
+
+function clearAll() {
+  let cells = grid.getElementsByTagName("td");
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    cell.style.backgroundColor = "white";
+  }
+}
+
   
 const addColumn = document.getElementById("addColumns");
 addColumn.onclick = () => {
@@ -53,4 +62,3 @@ fillEmptyButton.addEventListener("click", () => {
         }
     }
 });
-
