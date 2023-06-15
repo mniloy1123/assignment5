@@ -50,6 +50,15 @@ function getSelectedColor() {
   const colors = document.getElementById("color");
   return colors.value;
 }
+function isGridItem(ele) {
+  return ele.target.tagName.toLowerCase() === 'td';
+}
+
+grid.addEventListener("click", (ele) => {
+  if (isGridItem(ele)) {
+      ele.target.style.backgroundColor = getSelectedColor();
+  }
+});
 
 function clearAll() {
   let cells = grid.getElementsByTagName("td");
