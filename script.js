@@ -92,7 +92,7 @@ fillEmptyButton.addEventListener("click", () => {
   for (let i = 0; i < dataCells.length; i++) {
       let elem = dataCells[i];
       let computedStyle = window.getComputedStyle(elem);
-      if (computedStyle.getPropertyValue("background-color") === "transparent") {
+      if (computedStyle.getPropertyValue("background-color") === "rgb(255, 255, 255)") {
           elem.style.backgroundColor = getSelectedColor();
       }
   }
