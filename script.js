@@ -14,6 +14,13 @@ function addRows() {
   rows++;
 }
 
+
+function removeRows() {
+  var numRows = grid.rows.length;
+  if (numRows > 0) {
+    grid.deleteRow(numRows - 1);
+  }
+  
 const addColumn = document.getElementById("addColumns");
 addColumn.onclick = () => {
     let trs = document.querySelectorAll("table tr")
